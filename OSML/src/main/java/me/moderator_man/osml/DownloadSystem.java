@@ -136,7 +136,7 @@ public class DownloadSystem extends Thread
 		downloadFile(url, path, false);
 	}
 	
-	private void downloadFile(String url, String path, boolean deleteIfExists)
+	public void downloadFile(String url, String path, boolean deleteIfExists)
 	{
 		try
 		{
