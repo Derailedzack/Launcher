@@ -247,7 +247,12 @@ public class MainFrame
 			int dialogResult = JOptionPane.showConfirmDialog(null, "An update is available! Would you like to download it?", "Update", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 			if(dialogResult == JOptionPane.YES_OPTION)
 			{
-				Util.openNetpage("https://www.oldschoolminecraft.com/launcher/new/Minecraft%20Launcher.jar");
+				DownloadSystem downloadSystem = new DownloadSystem();
+				fileChooser = new JFileChooser();
+				fileChooser.setSelectedFile(new File("Minecraft Launcher.jar"));
+				fileChooser.showSaveDialog(this.frmOldSchoolMinecraft);
+				downloadSystem.downloadFile("https://www.oldschoolminecraft.com/launcher/new/Minecraft%20Launcher.jar",fileChooser.getSelectedFile().getPath(),false);
+				//Util.openNetpage("https://www.oldschoolminecraft.com/launcher/new/Minecraft%20Launcher.jar");
 				System.exit(0);
 			}
 			backgroundPanel.add(lblUpdateRequired);
